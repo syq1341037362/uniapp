@@ -1,1 +1,0 @@
-<view class="data-v-20817dbc"><text class="data-v-20817dbc">{{stitle}}</text><button class="t_btn data-v-20817dbc" size="default" data-event-opts="{{[['tap',[['toParent',['$event']]]]]}}" bindtap="__e">向父组件传值</button></view>
