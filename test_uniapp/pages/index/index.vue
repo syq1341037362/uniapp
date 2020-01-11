@@ -24,7 +24,8 @@
 				msg: '初次见面请多关照',
 				src:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1578677698331&di=041ad356855c0687e927658d0e6c307f&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Ffront%2F723%2Fw2048h1075%2F20190311%2F3rDy-htzuhtp6229276.jpg",
 				movies:['飞驰人生','夏洛特烦恼','西虹市首富','羞羞的铁拳','海上钢琴师','绿皮书','荒野求生','阿甘正传','黑衣人','无敌破坏王'],
-				currentIndex:0
+				currentIndex:0,
+				endFlag:false
 			}
 		},
 		onLoad() {
@@ -34,13 +35,19 @@
 			uni.startPullDownRefresh();
 		},
 		onPullDownRefresh() {
-			console.log("开始执行")
+			console.log("用户执行了下拉操作")
 			 this.getList();
+		
 		},
 		onReachBottom(){
+			if(this.endFlag){
+				console.log("暂无数据")
+				return
+			}
 			console.log("加载中")
 			const movies2 = ['美人鱼','冰雪奇缘','疯狂动物城','沉睡魔咒']
 			this.movies.push(...movies2)
+		  this.endFlag = true
 		},
 		methods: {
 			itemClick(i){
